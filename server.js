@@ -2,7 +2,7 @@ var express = require('express');
 var passport = require('passport');
 var Strategy = require('passport-openidconnect').Strategy;
 
-
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 // Configure the Twitter strategy for use by Passport.
 //
 // OAuth 1.0-based strategies require a `verify` function which receives the
@@ -11,11 +11,12 @@ var Strategy = require('passport-openidconnect').Strategy;
 // with a user object, which will be set at `req.user` in route handlers after
 // authentication.
 passport.use(new Strategy({
-    clientID: process.env.CLIENT_ID,
-    clientSecret: process.env.CLIENT_SECRET,
-    authorizationURL: 'https://login0.myauth0.com/i/oauth2/authorize',
-    tokenURL: 'https://login0.myauth0.com/oauth/token',
-    callbackURL: 'http://localhost:3000/callback'
+    clientID: '09NNDCW3Gxb2TwsOwTT1tCwSPbMa',
+    clientSecret: 'rkxJnMnTmLdOhhKYfDZxlV49HB8a',
+    authorizationURL: 'https://beta.siot.net:9443/oauth2/authorize',
+    tokenURL: 'https://beta.siot.net:9443/oauth2/token',
+    callbackURL: 'http://localhost:3000/callback',
+    userInfoURL : 'https://beta.siot.net:9443/oauth2/userinfo?schema=openid'
   },
   function(token, tokenSecret, profile, cb) {
     // In this example, the user's Twitter profile is supplied as the user

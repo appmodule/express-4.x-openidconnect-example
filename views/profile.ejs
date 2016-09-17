@@ -1,8 +1,7 @@
 <p>
 ID: <%= user.id %><br/>
-Username: <%= user.username %><br/>
-Name: <%= user.displayName %><br/>
-<% if (user.emails) { %>
-Email: <%= user.emails[0].value %><br/>
-<% } %>
+First Name: <%= user._json.first_name %><br/>
+Last Name: <%= user._json.family_name %><br/>
+Email: <%= user._json.email %><br/>
+Role: <%= user._json.role %><br/>
 </p>
